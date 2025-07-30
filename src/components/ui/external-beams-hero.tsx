@@ -6,6 +6,10 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { PerspectiveCamera } from "@react-three/drei"
 import { degToRad } from "three/src/math/MathUtils.js"
 import { ArrowRight, Github, Star } from "lucide-react"
+import { Chat } from '../chatScreen';
+import { useNavigate } from "react-router-dom";
+
+
 
 // ============================================================================
 // BEAMS COMPONENT (3D Background)
@@ -68,6 +72,8 @@ function extendMaterial<T extends THREE.Material = THREE.Material>(
   for (const [inc, code] of Object.entries(cfg.fragment ?? {})) {
     frag = frag.replace(inc, `${inc}\n${code}`)
   }
+  
+
 
   const mat = new THREE.ShaderMaterial({
     defines: { ...baseDefines },
@@ -440,6 +446,7 @@ const Button = ({ variant = "default", size = "sm", className = "", children, ..
   )
 }
 
+
 // ============================================================================
 // MAIN HERO COMPONENT
 // ============================================================================
@@ -457,7 +464,10 @@ const Button = ({ variant = "default", size = "sm", className = "", children, ..
  * - Fully responsive design
  * - Black & white aesthetic
  */
+
+
 export default function EtherealBeamsHero() {
+  const navigate = useNavigate(); 
   return (
     <div className="relative min-h-screen w-full overflow-hidden bg-black">
       {/* Beams Background */}
@@ -517,7 +527,7 @@ export default function EtherealBeamsHero() {
                 <Github className="mr-2 h-4 w-4" />
                 GitHub
               </Button>
-              <Button size="sm">
+              <Button onClick={() => navigate("/chat")} size="sm">
                 Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
@@ -554,7 +564,7 @@ export default function EtherealBeamsHero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-              <Button size="lg" className="shadow-2xl shadow-white/25 font-semibold">
+              <Button size="lg"  onClick={() => navigate("/chat")} className="shadow-2xl shadow-white/25 font-semibold ">
                 Start Creating
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>

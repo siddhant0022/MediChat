@@ -1,24 +1,20 @@
 'use client'
 
-import { SplineScene } from "@/components/ui/splite";
-import { SplineSceneBasic } from './components/heroSection'
-import { Card } from './components/ui/card'
-import EtherealBeamsHero from './components/ui/external-beams-hero'
-import { Spotlight } from "@/components/ui/spotlight"
- 
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./components/homePage" 
+import { Chat } from "./components/chatScreen";
 
 
 function App() {
   return (
     
-      <div>
-    <EtherealBeamsHero/>
-      
-    <SplineSceneBasic/>
-   
-
-
-    </div>
+      <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/chat" element={<Chat />} />
+      </Routes>
+    </Router>
   )
 }
 
