@@ -490,7 +490,7 @@ export default function EtherealBeamsHero() {
           <div className="flex h-16 items-center justify-between">
             {/* Brand Name Only */}
             <div className="flex items-center">
-              <span className="text-xl font-bold text-white">Mysh UI</span>
+              <span className="text-xl font-bold text-white">MediChat</span>
             </div>
 
             {/* Glassmorphic Navigation Pills */}
@@ -505,19 +505,19 @@ export default function EtherealBeamsHero() {
                 href="#"
                 className="rounded-full px-4 py-2 text-sm font-medium text-white/90 transition-all hover:bg-white/10 hover:text-white"
               >
-                Components
-              </a>
-              <a
-                href="#"
-                className="rounded-full px-4 py-2 text-sm font-medium text-white/90 transition-all hover:bg-white/10 hover:text-white"
-              >
-                Templates
+               Features
               </a>
               <a
                 href="#"
                 className="rounded-full px-4 py-2 text-sm font-medium text-white/90 transition-all hover:bg-white/10 hover:text-white"
               >
                 Docs
+              </a>
+              <a
+                href="#"
+                className="rounded-full px-4 py-2 text-sm font-medium text-white/90 transition-all hover:bg-white/10 hover:text-white"
+              >
+                
               </a>
             </div>
 
@@ -568,7 +568,12 @@ export default function EtherealBeamsHero() {
                 Start Creating
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
-              <Button variant="outline" size="lg" className="font-semibold bg-transparent">
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => window.open('/public/MediChat-data.pdf', '_blank')}
+                className="font-semibold bg-transparent"
+              >
                 Learn More
               </Button>
             </div>
@@ -576,7 +581,7 @@ export default function EtherealBeamsHero() {
             {/* Stats */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-2xl mx-auto">
               <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">1M+</div>
+                <div className="text-3xl font-bold text-white mb-2">10+</div>
                 <div className="text-white/60 text-sm">Users</div>
               </div>
               <div className="text-center">
