@@ -570,7 +570,7 @@ export default function EtherealBeamsHero() {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() => window.open('/public/MediChat_Trusted_Health_Data_Sources.pdf', '_blank')}
+                onClick={() => window.open('/MediChat_Trusted_Health_Data_Sources.pdf', '_blank')}
                 className="font-semibold bg-transparent"
               >
                 Learn More
