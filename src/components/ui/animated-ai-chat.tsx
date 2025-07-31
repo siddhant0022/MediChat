@@ -241,9 +241,6 @@ export function AnimatedAIChat() {
                     const selectedCommand = commandSuggestions[activeSuggestion];
                     setValue(selectedCommand.prefix + ' ');
                     setShowCommandPalette(false);
-                    
-                    // setRecentCommand(selectedCommand.label); // Removed as per edit hint
-                    // setTimeout(() => setRecentCommand(null), 3500); // Removed as per edit hint
                 }
             } else if (e.key === 'Escape') {
                 e.preventDefault();
@@ -293,12 +290,12 @@ export function AnimatedAIChat() {
     };
 
     return (
-        <div className="min-h-screen flex flex-col w-full items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900 p-6 relative overflow-hidden">
-            {/* Dark medical-themed background elements */}
+        <div className="min-h-screen flex flex-col w-full items-center justify-center bg-black p-6 relative overflow-hidden">
+            {/* Subtle background elements matching the site theme */}
             <div className="absolute inset-0 w-full h-full overflow-hidden">
-                <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full mix-blend-normal filter blur-[128px] animate-pulse" />
-                <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-green-500/20 rounded-full mix-blend-normal filter blur-[128px] animate-pulse delay-700" />
-                <div className="absolute top-1/4 right-1/3 w-64 h-64 bg-teal-500/20 rounded-full mix-blend-normal filter blur-[96px] animate-pulse delay-1000" />
+                <div className="absolute top-0 left-1/4 w-96 h-96 bg-white/5 rounded-full mix-blend-normal filter blur-[128px] animate-pulse" />
+                <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-white/5 rounded-full mix-blend-normal filter blur-[128px] animate-pulse delay-700" />
+                <div className="absolute top-1/4 right-1/3 w-64 h-64 bg-white/5 rounded-full mix-blend-normal filter blur-[96px] animate-pulse delay-1000" />
             </div>
             
             <div className="w-full max-w-4xl mx-auto relative">
@@ -316,25 +313,25 @@ export function AnimatedAIChat() {
                             className="inline-block"
                         >
                             <div className="flex items-center justify-center gap-3 mb-4">
-                                <div className="w-14 h-14 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center shadow-lg shadow-blue-500/25">
+                                <div className="w-14 h-14 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center border border-white/10">
                                     <Stethoscope className="w-7 h-7 text-white" />
                                 </div>
-                                <h1 className="text-5xl font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-400">
+                                <h1 className="text-5xl font-bold tracking-tight bg-gradient-to-r from-white via-gray-200 to-gray-400 bg-clip-text text-transparent">
                                     MediChat
                                 </h1>
                             </div>
-                            <h2 className="text-2xl font-medium text-gray-300 mb-2">
+                            <h2 className="text-2xl font-medium text-white/80 mb-2">
                                 Your AI Medical Assistant
                             </h2>
                             <motion.div 
-                                className="h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent"
+                                className="h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
                                 initial={{ width: 0, opacity: 0 }}
                                 animate={{ width: "100%", opacity: 1 }}
                                 transition={{ delay: 0.5, duration: 0.8 }}
                             />
                         </motion.div>
                         <motion.p 
-                            className="text-gray-400 text-xl"
+                            className="text-white/60 text-xl"
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.3 }}
@@ -344,7 +341,7 @@ export function AnimatedAIChat() {
                     </div>
 
                     <motion.div 
-                        className="relative backdrop-blur-xl bg-gray-900/80 rounded-3xl border border-gray-700/50 shadow-2xl shadow-black/50 h-[600px] flex flex-col"
+                        className="relative backdrop-blur-xl bg-white/5 rounded-3xl border border-white/10 shadow-2xl h-[600px] flex flex-col"
                         initial={{ scale: 0.98 }}
                         animate={{ scale: 1 }}
                         transition={{ delay: 0.1 }}
@@ -352,10 +349,10 @@ export function AnimatedAIChat() {
                         {/* Chat messages area */}
                         <div className="flex-1 overflow-y-auto p-6 space-y-4">
                             {messages.length === 0 && (
-                                <div className="text-center text-gray-400 mt-8">
-                                    <Stethoscope className="w-16 h-16 mx-auto mb-4 text-blue-400" />
-                                    <p className="text-xl font-medium text-gray-200">Welcome to MediChat!</p>
-                                    <p className="text-lg text-gray-400">I'm here to help with your health questions.</p>
+                                <div className="text-center text-white/60 mt-8">
+                                    <Stethoscope className="w-16 h-16 mx-auto mb-4 text-white/80" />
+                                    <p className="text-xl font-medium text-white/90">Welcome to MediChat!</p>
+                                    <p className="text-lg text-white/60">I'm here to help with your health questions.</p>
                                 </div>
                             )}
                             
@@ -371,7 +368,7 @@ export function AnimatedAIChat() {
                                     )}
                                 >
                                     {msg.role === "ai" && (
-                                        <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/25">
+                                        <div className="w-10 h-10 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center flex-shrink-0 border border-white/10">
                                             <Stethoscope className="w-5 h-5 text-white" />
                                         </div>
                                     )}
@@ -379,15 +376,15 @@ export function AnimatedAIChat() {
                                     <div className={cn(
                                         "max-w-[80%] rounded-2xl px-6 py-4",
                                         msg.role === "user" 
-                                            ? "bg-gradient-to-r from-blue-600 to-blue-700 text-white shadow-lg shadow-blue-500/25" 
-                                            : "bg-gray-800 text-gray-100 border border-gray-700"
+                                            ? "bg-white/10 backdrop-blur-xl text-white border border-white/10" 
+                                            : "bg-white/5 backdrop-blur-xl text-white/90 border border-white/5"
                                     )}>
                                         <p className="text-base leading-relaxed font-medium">{msg.text}</p>
                                     </div>
                                     
                                     {msg.role === "user" && (
-                                        <div className="w-10 h-10 bg-gray-600 rounded-full flex items-center justify-center flex-shrink-0">
-                                            <CircleUserRound className="w-5 h-5 text-gray-300" />
+                                        <div className="w-10 h-10 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center flex-shrink-0 border border-white/10">
+                                            <CircleUserRound className="w-5 h-5 text-white" />
                                         </div>
                                     )}
                                 </motion.div>
@@ -399,12 +396,12 @@ export function AnimatedAIChat() {
                                     animate={{ opacity: 1, y: 0 }}
                                     className="flex gap-4 justify-start"
                                 >
-                                    <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-green-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-lg shadow-blue-500/25">
+                                    <div className="w-10 h-10 bg-white/10 backdrop-blur-xl rounded-full flex items-center justify-center flex-shrink-0 border border-white/10">
                                         <Stethoscope className="w-5 h-5 text-white" />
                                     </div>
-                                    <div className="bg-gray-800 rounded-2xl px-6 py-4 border border-gray-700">
+                                    <div className="bg-white/5 backdrop-blur-xl rounded-2xl px-6 py-4 border border-white/5">
                                         <div className="flex items-center gap-3">
-                                            <span className="text-base text-gray-300 font-medium">MediChat is typing</span>
+                                            <span className="text-base text-white/80 font-medium">MediChat is typing</span>
                                             <TypingDots />
                                         </div>
                                     </div>
@@ -415,7 +412,7 @@ export function AnimatedAIChat() {
                         </div>
 
                         {/* Input area */}
-                        <div className="p-6 border-t border-gray-700 bg-gray-900/50 rounded-b-3xl">
+                        <div className="p-6 border-t border-white/10 bg-white/5 rounded-b-3xl">
                             <div className="flex items-end gap-4">
                                 <div className="flex-1">
                                     <Textarea
@@ -426,18 +423,16 @@ export function AnimatedAIChat() {
                                             adjustHeight();
                                         }}
                                         onKeyDown={handleKeyDown}
-                                        onFocus={() => {}} // Removed as per edit hint
-                                        onBlur={() => {}} // Removed as per edit hint
                                         placeholder="Describe your symptoms or ask a medical question..."
                                         containerClassName="w-full"
                                         className={cn(
                                             "w-full px-6 py-4",
                                             "resize-none",
-                                            "bg-gray-800/80 backdrop-blur-sm",
-                                            "border border-gray-600 rounded-2xl",
-                                            "text-gray-100 text-base font-medium",
-                                            "focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500",
-                                            "placeholder:text-gray-400",
+                                            "bg-white/5 backdrop-blur-xl",
+                                            "border border-white/10 rounded-2xl",
+                                            "text-white text-base font-medium",
+                                            "focus:outline-none focus:ring-2 focus:ring-white/20 focus:border-white/20",
+                                            "placeholder:text-white/40",
                                             "min-h-[70px]"
                                         )}
                                         style={{
@@ -457,8 +452,8 @@ export function AnimatedAIChat() {
                                         "px-8 py-4 rounded-2xl text-base font-semibold transition-all",
                                         "flex items-center gap-3",
                                         value.trim()
-                                            ? "bg-gradient-to-r from-blue-500 to-green-500 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40"
-                                            : "bg-gray-700 text-gray-400 cursor-not-allowed"
+                                            ? "bg-white/10 backdrop-blur-xl text-white border border-white/10 hover:bg-white/15"
+                                            : "bg-white/5 text-white/40 cursor-not-allowed border border-white/5"
                                     )}
                                 >
                                     {isTyping ? (
@@ -478,7 +473,7 @@ export function AnimatedAIChat() {
                             <motion.button
                                 key={suggestion.prefix}
                                 onClick={() => selectCommandSuggestion(index)}
-                                className="flex items-center gap-3 px-6 py-4 bg-gray-800/80 backdrop-blur-sm hover:bg-gray-700/80 rounded-2xl text-base text-gray-200 hover:text-white transition-all border border-gray-600/50 shadow-lg hover:shadow-xl"
+                                className="flex items-center gap-3 px-6 py-4 bg-white/5 backdrop-blur-xl hover:bg-white/10 rounded-2xl text-base text-white/90 hover:text-white transition-all border border-white/10"
                                 initial={{ opacity: 0, y: 10 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: index * 0.1 }}
