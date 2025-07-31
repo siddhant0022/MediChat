@@ -1,6 +1,4 @@
 'use client'
-import React from 'react'
-
 
 import { SplineSceneBasic } from './heroSection'
 import EtherealBeamsHero from './ui/external-beams-hero'

@@ -1,4 +1,4 @@
-import React from 'react'
+
 import EtherealBeamsHero from './ui/external-beams-hero'
 
 function hero() {

@@ -6,7 +6,6 @@ import { Canvas, useFrame } from "@react-three/fiber"
 import { PerspectiveCamera } from "@react-three/drei"
 import { degToRad } from "three/src/math/MathUtils.js"
 import { ArrowRight, Github, Star } from "lucide-react"
-import { Chat } from '../chatScreen';
 import { useNavigate } from "react-router-dom";
 
 

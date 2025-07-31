@@ -1,11 +1,11 @@
 import { BentoGrid, type BentoItem } from "@/components/ui/bento-grid"
 import {
-    CheckCircle,
+
     Cross,
     Leaf,
     MessageCircle,
     Flag,
-    Globe,
+    
 } from "lucide-react";
 
 
